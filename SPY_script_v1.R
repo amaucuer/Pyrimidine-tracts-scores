@@ -8,9 +8,6 @@ pA <- -2
 pC <- 2
 pT <- 3
 
-setwd("~/RNAseq_data_et_analyses/SPY_script")
-getwd()
-
 #import files with intronic sequences and tab delimited nucleotides matrix
 SPY_seq <- as.data.frame(fread("test_SPY_seq"))
 SPY_tab <- as.data.frame(fread("test_SPY_tab"))
