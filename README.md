@@ -6,7 +6,7 @@ The script below (bash) will extract the sequences in file “test_SPY_seq” an
 These two files serve as input for R script “SPY_script” that calculates SPY scores.
 
                                                                          
-bedtools getfasta -fi ~/rnastar/GRCh38.primary_assembly.genome.fa  -bed test_SPY -fo test_seq -s -tab ;
+bedtools getfasta -fi GRCh38.primary_assembly.genome.fa  -bed test_SPY -fo test_seq -s -tab ;
 paste test_SPY test_seq | cut -f 4,5,6,8 | sed 1i"exon\tgene\tstrand\tintron_sequence"> test_SPY_seq;
 
 awk 'NR>1 {split($4,a,""); printf $1"\t";for (i=1; i<102-length(a);i++) printf "N\t";for(i=1;i<length(a);++i) printf a[i]"\t"; print a[length(a)]}' test_SPY_seq | sed 1i"exon"> test_SPY_tab  
